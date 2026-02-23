@@ -21,15 +21,15 @@
 
         <!-- formulário: form -->
         <form id="form-notas" name="form-notas" method="get" action="">
-            <div>
-                <section class="my-3">
+            <div class="row">
+                <section class="my-3 col-md-6">
                     <label for="nome-aluno"  class="form-label">Nome do aluno</label>
                     <input type="text" id="nome-aluno" name="nome-aluno" class="form-control" placeholder="Ex: Nome do/a Aluno/a"
                     minlength="10" maxlength="50" required>
                 </section>
 
-                <section class="my-3">
-                    <label for="disciplina" class="form-label">disciplina</label>
+                <section class="my-3 col-md-6">
+                    <label for="disciplina" class="form-label">Disciplina</label>
                     <select name="disciplina" id="disciplina" 
                     class="form-select">
                         <option value=""  disabled selected>Selecione a disciplina</option>
@@ -43,6 +43,25 @@
                 </select>
                 </section>
 
+                <section class="my-3 col-md-6">
+                    <label for="nota1" class="form-label">Nota 1</label>
+                    <input type="text" name="nota1" id="nota1" class="form-control" required minlength="1" maxlength="4" placeholder="Ex: 10.0">
+                </section>
+
+                <section class="my-3 col-md-6">
+                    <label for="nota2" class="form-label">Nota 2</label>
+                    <input type="text" name="nota2" id="nota2" class="form-control" required minlength="1" maxlength="4" placeholder="Ex: 10.0">
+                </section>
+
+                <section class="my-3 col-md-6">
+                    <label for="nota3" class="form-label">Nota 3</label>
+                    <input type="text" name="nota3" id="nota3" class="form-control" required minlength="1" maxlength="4" placeholder="Ex: 10.0">
+                </section>
+
+                <section class="my-3 col-md-6">
+                    <label for="nota4" class="form-label">Nota 4</label>
+                    <input type="text" name="nota4" id="nota4" class="form-control" required minlength="1" maxlength="4" placeholder="Ex: 10.0">
+                </section>
 
                 <section class="my-5 d-flex justify-content-end">
                     <button type="submit" class="btn btn-danger">Calcular Notas</button>
