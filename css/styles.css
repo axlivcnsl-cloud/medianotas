@@ -1,0 +1,19 @@
+:root {
+    --color-red: #DC3545;
+}
+
+.title-size {
+    font-size: 1.5rem;
+    color: var(--color-red);
+}
+
+.container .navbar-toggler {
+    box-shadow: none;
+    border-width: 2px;
+    border-color: var(--color-red);
+}
+
+.bi-filter-right {
+    font-size: 1.5rem;
+    color: var(--color-red);
+}
