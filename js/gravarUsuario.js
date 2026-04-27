@@ -1,9 +1,12 @@
 // recuperando o formulário 
 // escutador para o evento Sbmit - ele ficará escutando quando o evento for disparado 
 // quando for disparado, executar uma função 
-document.querySelector("#form-notas").addEventListener("submit", (e) => {
+document.querySelector("#form-notas").addEventListener("submit", function(e)  {
     // cancelar o envio
-    e.preventDefault();
+    e.preventDefault(); 
+
+    // variável do resultado final
+    let resultadoFinal;
     
     // pegando cada informação digitado e armazenando com em variáveis
     const nomeAluno = document.querySelector("#nome-aluno").value;
@@ -11,6 +14,12 @@ document.querySelector("#form-notas").addEventListener("submit", (e) => {
 
     const disciplina = document.querySelector("#disciplina").value;
     console.log(disciplina);
+
+    // verifincando se o usuário escolheu a disciplina
+    if(disciplina.length === 0){
+        alert("Selecione uma disciplina válida");
+        return;
+    }
 
     const nota1 = Number(document.querySelector("#nota1").value);
     console.log(nota1);
@@ -28,5 +37,48 @@ document.querySelector("#form-notas").addEventListener("submit", (e) => {
     const media = (nota1 + nota2 + nota3 + nota4)/4;
     console.log(media);
 
+    if(nota1 > 10 || nota2 > 10 || nota3 > 10 || nota4 > 10){ 
+        alert('Notas precisam estar entre 1 e 10');
+        return;
+
+    }
+
+    // calcular o resultado
+    
+    if(media >= 6){
+        resultadoFinal = "Aprovado"
+
+    } else if(media < 4){
+        resultadoFinal= "Reprovado"
+    } else {
+        resultadoFinal = "Recuperação"
+    }
+    
+    console.log(resultadoFinal);
+
+
+
+    // Gravar na tabela 
+    document.querySelector('tbody').innerHTML += `    
+    <tr>
+      <td>${nomeAluno}</td>
+      <td>${disciplina}</td>
+      <td>${nota1.toFixed(1)}</td>
+      <td>${nota2.toFixed(1)}</td>
+      <td>${nota3.toFixed(1)}</td>
+      <td>${nota4.toFixed(1)}</td>
+      <td>${media.toFixed(1)}</td>
+      <td>${resultadoFinal}</td>
+    </tr>
+    `
+
+    // limpando o formulário
+    this.reset();
+
+
+    // Exibir a data da atualização
+    document.querySelector('#data').textContent = new Intl.DateTimeFormat('pt-BR').format(new Date());
+
+        
 })
 
